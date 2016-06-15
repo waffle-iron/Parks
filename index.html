@@ -111,6 +111,15 @@
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
 
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
         // so long, so messy
         function showInfo(gData) {
             tableOptions = {
