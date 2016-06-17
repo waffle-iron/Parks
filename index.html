@@ -118,8 +118,8 @@
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
-                    plat = position.coords.latitude;
-                    plong = position.coords.longitude;
+                    var plat = position.coords.latitude;
+                    var plong = position.coords.longitude;
                 });
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
