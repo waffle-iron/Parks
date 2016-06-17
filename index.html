@@ -109,25 +109,25 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var gData
-            var x = document.getElementById("demo");
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    x.innerHTML = "Geolocation is not supported by this browser.";
-                }
-            }
-            function showPosition(position) {
-                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-            }
-            getLocation();
-            y.innerHTML = "testing again";
             // gData.sort(function(a,b) {
             //
             // });
             var URL = "1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4"
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
+
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        }
+        getLocation();
 
         // so long, so messy
         function showInfo(gData) {
