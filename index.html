@@ -135,26 +135,25 @@
                       // inputs distance to json
                       gData[i].distance = dist;
                   }
+
+                  tableOptions = {
+                      "data": gData,
+                      "tableDiv": "#hackSpotsTable",
+                      "filterDiv": "#tableFilter"
+                  }
+                  // make the table, and the search bar
+                  Sheetsee.makeTable(tableOptions)
+                  Sheetsee.initiateTableFilter(tableOptions)
+
+                  // create geoJSON with coordinates and other
+                  // useful bits from the original data
+                  var optionsJSON = ["name", "type", "town", "rowNumber"]
+                  var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
               });
           }
           else {
               x.innerHTML = "Geolocation is not supported by this browser.";
           }
-
-          // calculates distance
-            tableOptions = {
-                "data": gData,
-                "tableDiv": "#hackSpotsTable",
-                "filterDiv": "#tableFilter"
-            }
-            // make the table, and the search bar
-            Sheetsee.makeTable(tableOptions)
-            Sheetsee.initiateTableFilter(tableOptions)
-
-            // create geoJSON with coordinates and other
-            // useful bits from the original data
-            var optionsJSON = ["name", "type", "town", "rowNumber"]
-            var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
 
             // create map, tilelayer (map background), markers and popups
             var map = Sheetsee.loadMap("map")
