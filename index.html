@@ -131,7 +131,7 @@
         for (var i=0; i < gData.length; i++) {
             latDiff = Math.abs(position.coords.latitude - gData[i].lat);
             longDiff = Math.abs(position.coords.longitude - gData[i].long);
-            gData[i].distance = Math.sqrt(latDiff**2 + longDiff**2);
+            gData[i].distance = Math.sqrt(Math.pow(latDiff,2) + Math.pow(longDiff,2));
         }
 
         // so long, so messy
