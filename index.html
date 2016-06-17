@@ -123,6 +123,8 @@
             }
         }
         function showPosition(position) {
+            var plat = position.coords.latitude;
+            var plong = position.coords.longitude;
             x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
         }
         getLocation();
@@ -132,8 +134,8 @@
         // so long, so messy
         function showInfo(gData) {
             for (var i=0; i < gData.length; i++) {
-                latDiff = Math.abs(position.coords.latitude - gData[i].lat);
-                longDiff = Math.abs(position.coords.longitude - gData[i].long);
+                latDiff = Math.abs(plat - gData[i].lat);
+                longDiff = Math.abs(plong - gData[i].long);
                 gData[i].distance = Math.sqrt(Math.pow(latDiff,2) + Math.pow(longDiff,2));
             }
             tableOptions = {
