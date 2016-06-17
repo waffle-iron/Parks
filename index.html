@@ -128,14 +128,14 @@
         getLocation();
 
         // adds distance to gData
-        for (var i=0; i < gData.length; i++) {
-            latDiff = Math.abs(position.coords.latitude - gData[i].lat);
-            longDiff = Math.abs(position.coords.longitude - gData[i].long);
-            gData[i].distance = Math.sqrt(Math.pow(latDiff,2) + Math.pow(longDiff,2));
-        }
 
         // so long, so messy
         function showInfo(gData) {
+            for (var i=0; i < gData.length; i++) {
+                latDiff = Math.abs(position.coords.latitude - gData[i].lat);
+                longDiff = Math.abs(position.coords.longitude - gData[i].long);
+                gData[i].distance = Math.sqrt(Math.pow(latDiff,2) + Math.pow(longDiff,2));
+            }
             tableOptions = {
                 "data": gData,
                 "tableDiv": "#hackSpotsTable",
