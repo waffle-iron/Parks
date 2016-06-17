@@ -52,21 +52,6 @@
     <button onclick="getLocation()">Try It</button>
 
     <p id="demo"></p>
-    <p id="demo2"></p>
-
-    <script>
-      var x = document.getElementById("demo");
-          function getLocation() {
-              if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(showPosition);
-              } else {
-                  x.innerHTML = "Geolocation is not supported by this browser.";
-              }
-          }
-          function showPosition(position) {
-              x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-          }
-    </script>
 
     <script id="hackSpotsTable" type="text/html">
         <table>
@@ -126,8 +111,18 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var gData
-            var y = document.getElementById("demo2");
-            y.innerHTML = "testing";
+            var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+            }
+            y.innerHTML = "testing again";
             // gData.sort(function(a,b) {
             //
             // });
