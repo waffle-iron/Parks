@@ -134,9 +134,9 @@
         // so long, so messy
         function showInfo(gData) {
             for (var i=0; i < gData.length; i++) {
-                latDiff = 41 - gData[i].lat;
-                longDiff = -71 - gData[i].long;
-                var radlat1 = Math.PI * 41/180;
+                latDiff = 41.8268 - gData[i].lat;
+                longDiff = -71.4025 - gData[i].long;
+                var radlat1 = Math.PI * 41.8268/180;
                 var radlat2 = Math.PI * gData[i].lat/180;
                 var radtheta = Math.PI * longDiff/180;
                 var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
