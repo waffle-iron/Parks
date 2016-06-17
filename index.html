@@ -121,10 +121,10 @@
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
-        }
-        function showPosition(position) {
             plat = position.coords.latitude;
             plong = position.coords.longitude;
+        }
+        function showPosition(position) {
             x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
         }
         getLocation();
@@ -133,6 +133,7 @@
 
         // so long, so messy
         function showInfo(gData) {
+          // calculates distance
             for (var i=0; i < gData.length; i++) {
                 latDiff = plat - gData[i].lat;
                 longDiff = plong - gData[i].long;
@@ -143,6 +144,7 @@
                 dist = Math.acos(dist);
                 dist = dist * 180/Math.PI;
                 dist = dist * 60 * 1.1515;
+                // inputs distance to json
                 gData[i].distance = dist;
             }
             tableOptions = {
