@@ -134,8 +134,8 @@
         // so long, so messy
         function showInfo(gData) {
             for (var i=0; i < gData.length; i++) {
-                latDiff = Math.abs(41 - gData[i].lat);
-                longDiff = Math.abs(-71 - gData[i].long);
+                latDiff = 41 - gData[i].lat;
+                longDiff = -71 - gData[i].long;
                 a = Math.pow(Math.sin(latDiff/2),2) + Math.cos(41) * Math.cos(gData[i].lat) * Math.pow(Math.sin(longDiff/2),2);
                 c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
                 gData[i].distance = 3961 * c;
