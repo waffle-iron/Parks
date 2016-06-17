@@ -121,13 +121,14 @@
             } else {
                 x.innerHTML = "Geolocation is not supported by this browser.";
             }
-            plat = position.coords.latitude;
-            plong = position.coords.longitude;
         }
         function showPosition(position) {
+            plat = position.coords.latitude;
+            plong = position.coords.longitude;
             x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
         }
         getLocation();
+        showPosition();
 
         // adds distance to gData
 
