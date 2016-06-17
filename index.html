@@ -143,7 +143,7 @@
                 dist = Math.acos(dist);
                 dist = dist * 180/Math.PI;
                 dist = dist * 60 * 1.1515;
-                gData[i].distance = Math.round(dist*10)/10.0;
+                gData[i].distance = String(Math.round(dist*10)/10.0);
             }
             tableOptions = {
                 "data": gData,
