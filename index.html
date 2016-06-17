@@ -45,7 +45,7 @@
         <div id="info" class="container">
             <h3>Contribute!</h3>
             <div id="theNumberofSpots"></div>
-            <p>This website is hooked up TO <a href="https://docs.google.com/spreadsheets/d/1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>. To suggest another site, fill out the form here.
+            <p>This website is hooked up to <a href="https://docs.google.com/spreadsheets/d/1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>. To suggest another site, fill out the form here.
         </div>
     </div><!-- end wrapper -->
 
@@ -113,6 +113,7 @@
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
 
+        // prompts user for location
         var x = document.getElementById("demo");
         function getLocation() {
             if (navigator.geolocation) {
@@ -126,8 +127,11 @@
         }
         getLocation();
 
+        // adds distance to gData
         for (var i=0; i < gData.length; i++) {
-            gData[i].distance = 5;
+            latDiff = Math.abs(position.coords.latitude - gData[i].lat);
+            longDiff = Math.abs(position.coords.longitude - gData[i].long);
+            gData[i].distance = Math.sqrt(latDiff**2 + longDiff**2);
         }
 
         // so long, so messy
