@@ -45,7 +45,7 @@
         <div id="info" class="container">
             <h3>Contribute!</h3>
             <div id="theNumberofSpots"></div>
-            <p>This website is hooked up to <a href="https://docs.google.com/spreadsheets/d/1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>. To suggest another site, fill out the form here.
+            <p>This website is hooked up TO <a href="https://docs.google.com/spreadsheets/d/1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>. To suggest another site, fill out the form here.
         </div>
     </div><!-- end wrapper -->
 
@@ -109,9 +109,6 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var gData
-            // gData.sort(function(a,b) {
-            //
-            // });
             var URL = "1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4"
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
         })
@@ -128,6 +125,10 @@
             x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
         }
         getLocation();
+
+        for (var i=0; i < gData.length; i++) {
+            gData[i].distance = 5;
+        }
 
         // so long, so messy
         function showInfo(gData) {
