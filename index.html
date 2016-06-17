@@ -121,15 +121,15 @@
           function getLocation() {
               if (navigator.geolocation) {
                   navigator.geolocation.getCurrentPosition(function(position) {
-                      var plat = position.coords.latitude;
-                      var plong = position.coords.longitude;
+                      plat = position.coords.latitude;
+                      plong = position.coords.longitude;
                   });
               } else {
                   x.innerHTML = "Geolocation is not supported by this browser.";
               }
           }
           getLocation();
-          
+
           // calculates distance
             for (var i=0; i < gData.length; i++) {
                 latDiff = plat - gData[i].lat;
