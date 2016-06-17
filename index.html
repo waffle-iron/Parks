@@ -199,7 +199,7 @@
                 var latestCompleteSpot = []
                 var startWithLatestRow = data.reverse()
                 startWithLatestRow.forEach(function(row){
-                    if (!row.distance !row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
+                    if (!row.distance || !row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
                     else latestCompleteSpot.push(row)
                 })
                 return latestCompleteSpot[0]
