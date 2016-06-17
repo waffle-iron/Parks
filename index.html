@@ -117,7 +117,7 @@
         var x = document.getElementById("demo");
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function() {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     plat = position.coords.latitude;
                     plong = position.coords.longitude;
                 });
