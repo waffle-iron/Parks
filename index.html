@@ -67,7 +67,7 @@
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
-                <li><span class="category">Biking:</span> {{distance}}</li>
+                <li><span class="category">Biking:</span> {{biking}}</li>
                 <li><span class="category">Hiking:</span> {{hiking}}</li>
                 <li><span class="category">Paddling:</span> {{paddling}}</li>
                 <li><span class="category">Running:</span> {{running}}</li>
@@ -92,7 +92,7 @@
             <p class="colorText">{{type}}<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
-                <li><span class="category">Biking:</span>{{distance}}</li>
+                <li><span class="category">Biking:</span>{{biking}}</li>
                 <li><span class="category">Hiking:</span> {{hiking}}</li>
                 <li><span class="category">Paddling:</span> {{paddling}}</li>
                 <li><span class="category">Running:</span> {{running}}</li>
@@ -108,9 +108,9 @@
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-            var gData
+            var gData;
             var URL = "1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4"
-                Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true })
+                Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true });
         })
 
         // prompts user for location
