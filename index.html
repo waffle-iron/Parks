@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>RI Parks</title>
+        <title>Rhode Island Parks</title>
         <meta charset='utf-8'>
         <script type="text/javascript" src='js/jquery.js '></script>
         <script type="text/javascript" src='js/tabletop1.3.4.js'></script>
@@ -67,7 +67,7 @@
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
-                <li><span class="category">Biking:</span> {{biking}}</li>
+                <li><span class="category">Biking:</span> {{distance}}</li>
                 <li><span class="category">Hiking:</span> {{hiking}}</li>
                 <li><span class="category">Paddling:</span> {{paddling}}</li>
                 <li><span class="category">Running:</span> {{running}}</li>
@@ -92,7 +92,7 @@
             <p class="colorText">{{type}}<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <ul>
-                <li><span class="category">Biking:</span>{{biking}}</li>
+                <li><span class="category">Biking:</span>{{distance}}</li>
                 <li><span class="category">Hiking:</span> {{hiking}}</li>
                 <li><span class="category">Paddling:</span> {{paddling}}</li>
                 <li><span class="category">Running:</span> {{running}}</li>
@@ -134,8 +134,8 @@
         // so long, so messy
         function showInfo(gData) {
             for (var i=0; i < gData.length; i++) {
-                latDiff = Math.abs(plat - gData[i].lat);
-                longDiff = Math.abs(plong - gData[i].long);
+                latDiff = Math.abs(41 - gData[i].lat);
+                longDiff = Math.abs(-71 - gData[i].long);
                 gData[i].distance = Math.sqrt(Math.pow(latDiff,2) + Math.pow(longDiff,2));
             }
             tableOptions = {
