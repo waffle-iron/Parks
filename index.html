@@ -118,17 +118,15 @@
 
           // prompts user for location
           var x = document.getElementById("demo");
-          function getLocation() {
-              if (navigator.geolocation) {
-                  navigator.geolocation.getCurrentPosition(function(position) {
-                      plat = position.coords.latitude;
-                      plong = position.coords.longitude;
-                  });
-              } else {
-                  x.innerHTML = "Geolocation is not supported by this browser.";
-              }
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                      var plat = position.coords.latitude;
+                      var plong = position.coords.longitude;
+              });
           }
-          getLocation();
+          else {
+              x.innerHTML = "Geolocation is not supported by this browser.";
+          }
 
           // calculates distance
             for (var i=0; i < gData.length; i++) {
