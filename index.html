@@ -113,24 +113,23 @@
                 Tabletop.init({ key: URL, callback: showInfo, simpleSheet: true });
         })
 
-        // prompts user for location
-        var x = document.getElementById("demo");
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var plat = position.coords.latitude;
-                    var plong = position.coords.longitude;
-                });
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-        getLocation();
-
-        // adds distance to gData
-
         // so long, so messy
         function showInfo(gData) {
+
+          // prompts user for location
+          var x = document.getElementById("demo");
+          function getLocation() {
+              if (navigator.geolocation) {
+                  navigator.geolocation.getCurrentPosition(function(position) {
+                      var plat = position.coords.latitude;
+                      var plong = position.coords.longitude;
+                  });
+              } else {
+                  x.innerHTML = "Geolocation is not supported by this browser.";
+              }
+          }
+          getLocation();
+          
           // calculates distance
             for (var i=0; i < gData.length; i++) {
                 latDiff = plat - gData[i].lat;
