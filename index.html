@@ -50,9 +50,9 @@
     </div><!-- end wrapper -->
 
     <button onclick="getLocation()">Try It</button>
-    var x = document.getElementById("demo");
 
     <p id="demo"></p>
+    <p id="demo2"></p>
 
     <script>
       var x = document.getElementById("demo");
@@ -126,7 +126,8 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             var gData
-            x.innerHTML = "Latitude: " + position.coords.latitude;
+            var y = document.getElementById("demo2");
+            y.innerHTML = "Latitude: " + position.coords.latitude;
             // gData.sort(function(a,b) {
             //
             // });
