@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Rhode Island Parks</title>
+        <title>Parks of Rhode Island</title>
         <meta charset='utf-8'>
         <script type="text/javascript" src='js/jquery.js '></script>
         <script type="text/javascript" src='js/tabletop1.3.4.js'></script>
@@ -129,8 +129,8 @@
                 }
             }
             function showPosition(position) {
-                plat = position.coords.latitude;
-                plong = position.coords.longitude;
+                var plat = position.coords.latitude;
+                var plong = position.coords.longitude;
                 x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
             }
             getLocation();
