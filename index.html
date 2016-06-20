@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Parks of Rhode Island</title>
+        <title>Rhode Island Parks</title>
         <meta charset='utf-8'>
         <script type="text/javascript" src='js/jquery.js '></script>
         <script type="text/javascript" src='js/tabletop1.3.4.js'></script>
@@ -108,6 +108,22 @@
     </script>
 
     <script type="text/javascript">
+    // prompts user for location
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+            else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            plat = position.coords.latitude;
+            plong = position.coords.longitude;
+            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+        }
+        getLocation();
 
         document.addEventListener('DOMContentLoaded', function() {
             var gData;
@@ -119,22 +135,6 @@
 
         // so long, so messy
         function showInfo(gData) {
-            var x = document.getElementById("demo");
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                }
-                else {
-                    x.innerHTML = "Geolocation is not supported by this browser.";
-                }
-            }
-            function showPosition(position) {
-                var plat = position.coords.latitude;
-                var plong = position.coords.longitude;
-                x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-            }
-            getLocation();
-
             for (var i=0; i < gData.length; i++) {
                 latDiff = plat - gData[i].lat;
                 longDiff = plong - gData[i].long;
