@@ -257,14 +257,13 @@
                 $('.spotRow').first().click()
             }
         }
-
         $(document).on('keyup', '#tableFilter', function() {
             window.location.hash = $(this).val()
             $('.spotRow').first().click()
         })
-        $(document).on('keyup', '#activityFilter', function() {
+        $('#activityFilter option').on('click', function() {
             $('.spotRow').first().click()
-        })
+        });
     </script>
 </body>
 </html>
