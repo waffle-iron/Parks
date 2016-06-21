@@ -16135,7 +16135,7 @@ function searchTable(opts, searchTerm) {
           if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
             does_match = false;
           }}
-      alert(strUser);
+      console.log(strUser);
       if (strUser != "View All Parks") {
         if (object[dropdown] == "no") {
           does_match = false;
