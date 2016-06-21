@@ -16125,20 +16125,23 @@ function searchTable(opts, searchTerm) {
   var is_IE = !!document.documentMode;
   var e = document.getElementById("activityFilter");
   var strUser = e.options[e.selectedIndex].value;
+  var dropdown = strUser.toLowerCase();
   if (is_IE == false) {
     term_array = searchTerm.split(" ");
     opts.data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase();
       var does_match = true;
       for (var i=0; i<term_array.length; i++) {
-        if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
-          does_match = false;
-        }}
-      console.log(strUser);
+          if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
+            does_match = false;
+          }}
       alert(strUser);
-      // if (($(object + "." + selected.toLowerCase())).value == "no") {
-      //   does_match = false;
-      // }
+      if (strUser != "View All Parks") {
+        if (object[dropdown] == "no") {
+          does_match = false;
+        }
+      }
+
       if (does_match) {
         filteredList.push(object);
       }
