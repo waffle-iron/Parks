@@ -16133,7 +16133,7 @@ function searchTable(opts, searchTerm) {
           does_match = false;
         }}
       var e = document.getElementById("activityFilter");
-      var selected = e.options[e.selectedIndex].value;
+      var selected = e.options[1].value;
       alert(selected);
       if (($(object + "." + selected.toLowerCase())).value == "no") {
         does_match = false;
