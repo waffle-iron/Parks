@@ -16132,7 +16132,7 @@ function searchTable(opts, searchTerm) {
         if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
           does_match = false;
         }}
-      if (opts.activity != "Running") {
+      if (opts.activity == "Running") {
         does_match = false;
       }
       if (does_match) {
