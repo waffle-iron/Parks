@@ -34,7 +34,6 @@ ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transfor
 ul.nav li a {border: none;}
 ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
-#wrapper p {font-size: 14px; font-weight: 300;}
 #wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; /*margin-left: 250px;*/}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
@@ -42,6 +41,7 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 .fauxButton {padding: 5px 5px; background-color: #FF4646; font-size: 11px; color: #fff; display: inline;}
 .fauxButton .selected {background-color: #FF4646;}
 .colorText {color: #FF4646; text-transform: uppercase; font-weight: 700;}
+.filterText {font-size: 14px; font-weight: 300;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
