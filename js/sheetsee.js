@@ -16135,9 +16135,9 @@ function searchTable(opts, searchTerm) {
       var e = document.getElementById("activityFilter");
       var selected = e.options[1].value;
       alert(selected);
-      if (($(object + "." + selected.toLowerCase())).value == "no") {
-        does_match = false;
-      }
+      // if (($(object + "." + selected.toLowerCase())).value == "no") {
+      //   does_match = false;
+      // }
       if (does_match) {
         filteredList.push(object);
       }
