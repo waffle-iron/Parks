@@ -16122,11 +16122,11 @@ module.exports.initiateTableFilter = function(opts) {
 module.exports.searchTable = searchTable
 function searchTable(opts, searchTerm) {
   var filteredList = [];
-  opts_array = opts.split(" ");
-  for (var i=0; i<opts_array.length; i++) {
-    opts_array[i].data.forEach(function(object) {
+  term_array = searchTerm.split(" ");
+  for (var i=0; i<term_array.length; i++) {
+    term_array[i].data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase()
-      if (stringObject.includes(searchTerm.toLowerCase())) filteredList.push(object)
+      if (stringObject.match(searchTerm.toLowerCase())) filteredList.push(object)
     })
   }
   if (filteredList.length === 0) {
