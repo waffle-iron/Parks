@@ -16132,6 +16132,9 @@ function searchTable(opts, searchTerm) {
         if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
           does_match = false;
         }}
+      if (opts.activity == "Running") {
+        does_match = false;
+      }
       if (does_match) {
         filteredList.push(object);
       }
@@ -16153,6 +16156,7 @@ function searchTable(opts, searchTerm) {
     makeTable(opts, filteredList)
   }
 }
+
 module.exports.sortThings = sortThings
 function sortThings(opts, sorter, sorted, tableDiv) {
   if (opts.tableDiv != tableDiv) return
