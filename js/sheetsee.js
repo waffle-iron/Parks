@@ -16122,18 +16122,28 @@ module.exports.initiateTableFilter = function(opts) {
 module.exports.searchTable = searchTable
 function searchTable(opts, searchTerm) {
   var filteredList = [];
-  term_array = searchTerm.split(" ");
-  opts.data.forEach(function(object) {
-    var stringObject = JSON.stringify(object).toLowerCase();
-    var does_match = true;
-    for (var i=0; i<term_array.length; i++) {
-      if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
-        does_match = false;
-      }}
-    if (does_match) {
-      filteredList.push(object);
-    }
-  });
+  var is_IE = !!document.documentMode;
+  if (is_IE == false) {
+    term_array = searchTerm.split(" ");
+    opts.data.forEach(function(object) {
+      var stringObject = JSON.stringify(object).toLowerCase();
+      var does_match = true;
+      for (var i=0; i<term_array.length; i++) {
+        if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
+          does_match = false;
+        }}
+      if (does_match) {
+        filteredList.push(object);
+      }
+    });
+  } else {
+    opts.data.forEach(function(object) {
+      var stringObject = JSON.stringify(object).toLowerCase()
+      if (stringObject.match(searchTerm.toLowerCase())) {
+        filteredList.push(object)
+      }
+    })
+  }
   if (filteredList.length === 0) {
     $(".noMatches").css("visibility", "inherit")
     makeTable(opts, filteredList)
