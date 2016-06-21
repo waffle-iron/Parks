@@ -16125,9 +16125,15 @@ function searchTable(opts, searchTerm) {
   term_array = searchTerm.split(" ");
   opts.data.forEach(function(object) {
     var stringObject = JSON.stringify(object).toLowerCase();
-    if (for (var i=0; i<term_array.length; i++) { (stringObject.match(term_array[i].toLowerCase()))}) {
+    var does_match = true;
+    for (var i=0; i<term_array.length; i++) {
+      if ((stringObject.match(term_array[i].toLowerCase())) == false) {
+        does_match = false;
+      }}
+    if (does_match) {
       filteredList.push(object);
-    }});
+    }
+  });
   if (filteredList.length === 0) {
     $(".noMatches").css("visibility", "inherit")
     makeTable(opts, filteredList)
