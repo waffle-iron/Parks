@@ -2202,7 +2202,7 @@ URI.prototype.setPath = function (newPath) {
 URI.prototype.setRawPath = function (newPath) {
   if (newPath) {
     newPath = String(newPath);
-    this.path_ = 
+    this.path_ =
       // Paths must start with '/' unless this is a path-relative URL.
       (!this.domain_ || /^\//.test(newPath)) ? newPath : '/' + newPath;
   } else {
@@ -16124,7 +16124,7 @@ function searchTable(opts, searchTerm) {
   var filteredList = []
   opts.data.forEach(function(object) {
     var stringObject = JSON.stringify(object).toLowerCase()
-    if (stringObject.match(searchTerm.toLowerCase())) filteredList.push(object)
+    if (stringObject.includes(searchTerm.toLowerCase())) filteredList.push(object)
   })
   if (filteredList.length === 0) {
     $(".noMatches").css("visibility", "inherit")
@@ -16180,7 +16180,7 @@ function initiateTableSorter(options) {
 module.exports.makeTable = makeTable
 function makeTable(opts, filteredList) {
   initiateTableSorter(opts)
-  
+
   if (filteredList) var data = filteredList
     else var data = opts.data
   var tableId = opts.tableDiv.slice(1)
@@ -16195,13 +16195,13 @@ function makeTable(opts, filteredList) {
     var currentRows = data.slice(currentStart, currentEnd)
     table(currentRows, opts)
     if (opts.data.length > opts.pagination) writePreNext(opts.tableDiv, currentPage, currentPage, totalPages, data, opts.pagination)
-  }    
+  }
 }
 
 module.exports.setPagClicks = setPagClicks
 function setPagClicks(data, tableId, currentPage, pagination, totalPages) {
   $(".pagination-pre-" + tableId).addClass("no-pag")
-    
+
   $(document).on("click", (".pagination-next-" + tableId), function() {
     if ($(this).hasClass("no-pag")) return
 
@@ -16252,7 +16252,7 @@ function setPagClicks(data, tableId, currentPage, pagination, totalPages) {
       table(currentRows, "#" + tableId)
       setPreNext("#" + tableId, currentPage, currentPage, totalPages)
     }
-    
+
   })
 }
 
