@@ -16123,6 +16123,8 @@ module.exports.searchTable = searchTable
 function searchTable(opts, searchTerm) {
   var filteredList = [];
   var is_IE = !!document.documentMode;
+  var e = document.getElementById("activityFilter");
+  var strUser = e.options[e.selectedIndex].value;
   if (is_IE == false) {
     term_array = searchTerm.split(" ");
     opts.data.forEach(function(object) {
@@ -16132,7 +16134,8 @@ function searchTable(opts, searchTerm) {
         if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
           does_match = false;
         }}
-      console.log($(this.id + opts.activity));
+      console.log(strUser);
+      alert(strUser);
       // if (($(object + "." + selected.toLowerCase())).value == "no") {
       //   does_match = false;
       // }
