@@ -16124,9 +16124,9 @@ function searchTable(opts, searchTerm) {
   var filteredList = [];
   term_array = searchTerm.split(" ");
   for (var i=0; i<term_array.length; i++) {
-    term_array[i].data.forEach(function(object) {
+    opts.data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase()
-      if (stringObject.match(searchTerm.toLowerCase())) filteredList.push(object)
+      if (stringObject.match(term_array[i].toLowerCase())) filteredList.push(object)
     })
   }
   if (filteredList.length === 0) {
