@@ -16124,7 +16124,7 @@ function searchTable(opts, searchTerm) {
   var filteredList = [];
   opts_array = opts.split(" ");
   for (var i=0; i<opts_array.length; i++) {
-    opts[i].data.forEach(function(object) {
+    opts_array[i].data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase()
       if (stringObject.includes(searchTerm.toLowerCase())) filteredList.push(object)
     })
