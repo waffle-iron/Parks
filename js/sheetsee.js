@@ -16134,7 +16134,7 @@ function searchTable(opts, searchTerm) {
         }}
       var e = document.getElementById("activityFilter");
       var selected = e.options[e.selectedIndex].value;
-      if (selected == "Running") {
+      if ($(object + "." + selected.toLowerCase()) == "no") {
         does_match = false;
       }
       if (does_match) {
