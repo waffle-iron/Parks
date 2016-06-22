@@ -16105,24 +16105,24 @@ module.exports = {
 };
 
 },{}],56:[function(require,module,exports){
-var ich = require('icanhaz')
+var ich = require('icanhaz');
 
 module.exports.initiateTableFilter = function(opts) {
   $('.clear').on("click", function() {
-    $(this.id + ".noMatches").css("visibility", "hidden")
-    $(this.id + opts.filterDiv).val("")
-    makeTable(opts)
-  })
+    $(this.id + ".noMatches").css("visibility", "hidden");
+    $(this.id + opts.filterDiv).val("");
+    makeTable(opts);
+  });
   $(opts.filterDiv).keyup(function(e) {
-    var text = $(e.target).val()
-    searchTable(opts, text)
-  })
+    var text = $(e.target).val();
+    searchTable(opts, text);
+  });
   $('#activityFilter option').on('click', function() {
     var text = document.getElementById("tableFilter").value;
     console.log(text);
     searchTable(opts, text);
     $('.spotRow').first().click();
-  })
+  });
 }
 
 module.exports.searchTable = searchTable
@@ -16154,19 +16154,19 @@ function searchTable(opts, searchTerm) {
     });
   } else {
     opts.data.forEach(function(object) {
-      var stringObject = JSON.stringify(object).toLowerCase()
+      var stringObject = JSON.stringify(object).toLowerCase();
       if (stringObject.match(searchTerm.toLowerCase())) {
-        filteredList.push(object)
+        filteredList.push(object);
       }
     })
   }
   if (filteredList.length === 0) {
-    $(".noMatches").css("visibility", "inherit")
-    makeTable(opts, filteredList)
+    $(".noMatches").css("visibility", "inherit");
+    makeTable(opts, filteredList);
   }
   else {
-    $(".noMatches").css("visibility", "hidden")
-    makeTable(opts, filteredList)
+    $(".noMatches").css("visibility", "hidden");
+    makeTable(opts, filteredList);
   }
 }
 
