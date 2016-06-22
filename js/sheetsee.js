@@ -16117,12 +16117,6 @@ module.exports.initiateTableFilter = function(opts) {
     var text = $(e.target).val();
     searchTable(opts, text);
   });
-  $('#activityFilter option').change(function() {
-    var text = document.getElementById("tableFilter").value;
-    console.log(text);
-    searchTable(opts, text);
-    $('.spotRow').first().click();
-  });
 }
 
 module.exports.searchTable = searchTable
