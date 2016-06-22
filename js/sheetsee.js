@@ -16117,7 +16117,7 @@ module.exports.initiateTableFilter = function(opts) {
     var text = $(e.target).val();
     searchTable(opts, text);
   });
-  $('#activityFilter option').on('click', function() {
+  $('#activityFilter option').change(function() {
     var text = document.getElementById("tableFilter").value;
     console.log(text);
     searchTable(opts, text);
@@ -16141,7 +16141,7 @@ function searchTable(opts, searchTerm) {
           if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
             does_match = false;
           }}
-      console.log(strUser);
+      console.log(dropdown);
       if (strUser != "View All Parks") {
         if (object[dropdown] == "no") {
           does_match = false;
