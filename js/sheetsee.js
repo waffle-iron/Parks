@@ -16117,6 +16117,10 @@ module.exports.initiateTableFilter = function(opts) {
     var text = $(e.target).val()
     searchTable(opts, text)
   })
+  $('#activityFilter option').on('click', function() {
+      var text = document.getElementByID("tableFilter");
+      searchTable(opts, text);
+  })
 }
 
 module.exports.searchTable = searchTable
