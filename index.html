@@ -216,12 +216,12 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
-                if (selectedSpot[biking] == "yes") {
+                if (gData[selectedSpot]["biking"] == "yes") {
                     console.log("too late?");
                     document.getElementById("biking").src ="icons\biking.svg";
                 }
                 else {
-                  console.log(selectedSpot.biking);
+                  console.log(gData[selectedSpot].biking);
                 }
             })
 
