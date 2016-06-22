@@ -253,7 +253,7 @@
             $('#theNumberofSpots').html(theNumberofSpots)
 
             if (window.location.hash) {
-                // $('#tableFilter').val(window.location.hash.substring(1)).keyup()
+                $('#tableFilter').val(window.location.hash.substring(1)).keyup()
                 $('.spotRow').first().click()
             }
         }
@@ -262,8 +262,9 @@
             $('.spotRow').first().click()
         })
         $('#activityFilter option').on('click', function() {
-            $('.spotRow').first().click()
-        });
+          var text = document.getElementById("tableFilter");
+          Sheetsee.searchTable(tableOptions, text);
+        })
     </script>
 </body>
 </html>
