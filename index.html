@@ -95,12 +95,6 @@
                 <li><span class="category">Swimming:</span> {{swimming}}</li>
                 <li><span class="category">Walking:</span> {{walking}}</li>
             </ul>
-            <img id="running" style="width:10%;">
-            <img src="icons\hiking.svg" style="width:10%;">
-            <img src="icons\paddling.svg" style="width:10%;">
-            <img src="icons\running.svg" style="width:10%;">
-            <img src="icons\swimming.svg" style="width:10%;">
-            <img src="icons\walking.svg" style="width:10%;">
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
                 <li><a href="http://www.yelp.com/search?find_desc={{name}}&find_loc={{town}},{{state}}" target="_blank">Find on Yelp</a></li>
@@ -126,6 +120,12 @@
                 <li><span class="category">Swimming:</span>{{swimming}}</li>
                 <li><span class="category">Walking:</span>{{walking}}</li>
             </ul>
+            <img id="running" style="width:10%;">
+            <img src="icons\hiking.svg" style="width:10%;">
+            <img src="icons\paddling.svg" style="width:10%;">
+            <img src="icons\running.svg" style="width:10%;">
+            <img src="icons\swimming.svg" style="width:10%;">
+            <img src="icons\walking.svg" style="width:10%;">
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
                 <li><a href="http://www.yelp.com/search?find_desc={{name}}&find_loc={{town}},{{state}}" target="_blank">Find on Yelp</a></li>
@@ -217,6 +217,9 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
+                if (selectedSpot["running"] == "yes") {
+                    document.getElementById("running").src ="icons\biking.svg";
+                }
             })
 
             // so that the first map and info that loads
@@ -276,19 +279,6 @@
             window.location.hash = $(this).val()
             $('.spotRow').first().click()
         })
-        function findLatestCompleteSpot(data) {
-            var latestCompleteSpot = []
-            var startWithLatestRow = data.reverse()
-            startWithLatestRow.forEach(function(row){
-                if (!row.distance || !row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
-                else latestCompleteSpot.push(row)
-            })
-            return latestCompleteSpot[0]
-        }
-        var theLatestSpot = findLatestCompleteSpot(gData);
-        if (theLatestSpot["running"] == "yes") {
-            document.getElementById("running").src ="icons\biking.svg";
-        }
     </script>
 </body>
 </html>
