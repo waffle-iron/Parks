@@ -41,7 +41,7 @@
             <span class="clear button">Clear</span> <span class="resetMap button">Reset Map</span>
             <span class="noMatches">no matches</span>
             <p class="filterText">Filter by activity:</p>
-            <select id="activityFilter">
+            <select onchange="updateTable()" id="activityFilter">
                 <option selected value="View All Parks">View All Parks</option>
                 <option value="Biking">Biking</option>
                 <option value="Hiking">Hiking</option>
@@ -58,6 +58,16 @@
             <p>This website is hooked up to <a href="https://docs.google.com/spreadsheets/d/1-b4W49NM4tf4_Ysnvv8oqbCAcapi-t6-mN2wFvbkbw4/edit?usp=sharing" target="_blank">this Google Spreadsheet</a>. To suggest another site, fill out the form here.
         </div>
     </div><!-- end wrapper -->
+
+
+    <script type="text/javascript">
+    function updateTable() {
+        var text = document.getElementById("tableFilter").value;
+        console.log(text);
+        searchTable(opts, text);
+        $('.spotRow').first().click();
+    }
+    </script>
 
     <p id="demo"></p>
 
