@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Parks of Rhode Island</title>
+        <title>Parks of Rhode's Island</title>
         <meta charset='utf-8'>
         <script type="text/javascript" src='js/jquery.js '></script>
         <script type="text/javascript" src='js/tabletop1.3.4.js'></script>
@@ -216,7 +216,7 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
-                if (selectedSpot["biking"] == "yes") {
+                if (selectedSpot[biking] == "yes") {
                     console.log("too late?");
                     document.getElementById("biking").src ="icons\biking.svg";
                 }
