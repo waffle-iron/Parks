@@ -94,12 +94,12 @@
                 <li><span class="category">Swimming:</span> {{swimming}}</li>
                 <li><span class="category">Walking:</span> {{walking}}</li>
             </ul>
-            <img id="rbiking" style="width:10%;">
-            <img id="rhiking" style="width:10%;">
-            <img id="rpaddling" style="width:10%;">
-            <img id="rrunning" style="width:10%;">
-            <img id="rswimming" style="width:10%;">
-            <img id="rwalking" style="width:10%;">
+            <img id="rbiking" src ="icons\biking.svg" style="width:0%;">
+            <img id="rhiking" src ="icons\hiking.svg" style="width:0%;">
+            <img id="rpaddling" src ="icons\paddling.svg" style="width:0%;">
+            <img id="rrunning" src ="icons\running.svg" style="width:0%;">
+            <img id="rswimming" src ="icons\swimming.svg" style="width:0%;">
+            <img id="rwalking" src ="icons\walking.svg" style="width:0%;">
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
                 <li><a href="http://www.yelp.com/search?find_desc={{name}}&find_loc={{town}},{{state}}" target="_blank">Find on Yelp</a></li>
@@ -198,6 +198,13 @@
             // set it and pan to it
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
+
+            if (theLatestSpot.biking == "no") {
+                document.getElementById("rbiking").style="width:10%;";
+            }
+            else {
+                console.log(theLatestSpot.biking);
+            }
 
             // when someone clicks on a row, highlight it and
             // re-center the map
