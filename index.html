@@ -218,6 +218,7 @@
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
                 if (selectedSpot["biking"] == "yes") {
+                    console.log("too late?");
                     document.getElementById("running").src ="icons\biking.svg";
                 }
             })
