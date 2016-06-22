@@ -95,7 +95,7 @@
                 <li><span class="category">Swimming:</span> {{swimming}}</li>
                 <li><span class="category">Walking:</span> {{walking}}</li>
             </ul>
-            <img src="icons\biking.svg" style="width:10%;">
+            <img id="running" style="width:10%;">
             <img src="icons\hiking.svg" style="width:10%;">
             <img src="icons\paddling.svg" style="width:10%;">
             <img src="icons\running.svg" style="width:10%;">
@@ -194,7 +194,10 @@
             // find the latest spot with the most important
             // info filled in (to prevent map breaking if
             // someone is currently editing spreadsheet)
-            var theLatestSpot = findLatestCompleteSpot(gData)
+            var theLatestSpot = findLatestCompleteSpot(gData);
+            if (theLatestSpot["running"] == "yes") {
+                document.getElementById("running").src = "icons\biking.svg";
+            }
             var latestSpot = Sheetsee.ich.latestSpot({
                 rows: theLatestSpot
             })
