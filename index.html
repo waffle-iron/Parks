@@ -202,10 +202,6 @@
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
-            if (theLatestSpot["running"] == "yes") {
-                document.getElementById("running").src = "icons\biking.svg";
-            }
-
             // when someone clicks on a row, highlight it and
             // re-center the map
             // TODO show popup, change marker color
@@ -280,6 +276,10 @@
             window.location.hash = $(this).val()
             $('.spotRow').first().click()
         })
+        var theLatestSpot = findLatestCompleteSpot(gData);
+        if (theLatestSpot["running"] == "yes") {
+            document.getElementById("running").src ="icons\biking.svg";
+        }
     </script>
 </body>
 </html>
