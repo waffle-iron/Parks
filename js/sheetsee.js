@@ -16121,6 +16121,7 @@ module.exports.initiateTableFilter = function(opts) {
     var text = document.getElementById("tableFilter").value;
     console.log(text);
     searchTable(opts, text);
+    $('.spotRow').first().click();
   })
 }
 
