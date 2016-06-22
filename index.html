@@ -268,6 +268,25 @@
                 // update the spot listing
                 $('#latestSpot').css("display", "none")
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
+
+                if (dataElement[0].biking == "yes") {
+                    document.getElementById("biking").src ="icons\\biking.svg";
+                }
+                if (dataElement[0].hiking == "yes") {
+                    document.getElementById("hiking").src ="icons\\hiking.svg";
+                }
+                if (dataElement[0].paddling == "yes") {
+                    document.getElementById("paddling").src ="icons\\paddling.svg";
+                }
+                if (dataElement[0].running == "yes") {
+                    document.getElementById("running").src ="icons\\running.svg";
+                }
+                if (dataElement[0].swimming == "yes") {
+                    document.getElementById("swimming").src ="icons\\swimming.svg";
+                }
+                if (dataElement[0].walking == "yes") {
+                    document.getElementById("walking").src ="icons\\walking.svg";
+                }
             })
 
             // reset the map, zoom out, and recenter on 0,0
