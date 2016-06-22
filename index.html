@@ -199,11 +199,23 @@
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
-            if (theLatestSpot.biking == "no") {
+            if (theLatestSpot.biking == "yes") {
                 document.getElementById("rbiking").style="width:10%;";
             }
-            else {
-                console.log(theLatestSpot.biking);
+            if (theLatestSpot.hiking == "yes") {
+                document.getElementById("rhiking").style="width:10%;";
+            }
+            if (theLatestSpot.paddling == "yes") {
+                document.getElementById("rpaddling").style="width:10%;";
+            }
+            if (theLatestSpot.running == "yes") {
+                document.getElementById("rrunning").style="width:10%;";
+            }
+            if (theLatestSpot.swimming == "yes") {
+                document.getElementById("rswimming").style="width:10%;";
+            }
+            if (theLatestSpot.walking == "yes") {
+                document.getElementById("rwalking").style="width:10%;";
             }
 
             // when someone clicks on a row, highlight it and
