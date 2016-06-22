@@ -63,7 +63,6 @@
     <script type="text/javascript">
     function updateTable() {
         var text = document.getElementById("tableFilter").value;
-        console.log(text);
         Sheetsee.searchTable(tableOptions, text);
         $('.spotRow').first().click();
     }
@@ -220,6 +219,9 @@
                 if (selectedSpot["biking"] == "yes") {
                     console.log("too late?");
                     document.getElementById("biking").src ="icons\biking.svg";
+                }
+                else {
+                  console.log(selectedSpot["biking"]);
                 }
             })
 
