@@ -120,11 +120,11 @@
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
             <ul>
                 <li><span class="category">Biking:</span>{{biking}}</li>
-                <li><span class="category">Hiking:</span> {{hiking}}</li>
-                <li><span class="category">Paddling:</span> {{paddling}}</li>
-                <li><span class="category">Running:</span> {{running}}</li>
-                <li><span class="category">Swimming:</span> {{swimming}}</li>
-                <li><span class="category">Walking:</span> {{walking}}</li>
+                <li><span class="category">Hiking:</span>{{hiking}}</li>
+                <li><span class="category">Paddling:</span>{{paddling}}</li>
+                <li><span class="category">Running:</span>{{running}}</li>
+                <li><span class="category">Swimming:</span>{{swimming}}</li>
+                <li><span class="category">Walking:</span>{{walking}}</li>
             </ul>
             <ul>
                 <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
@@ -195,15 +195,16 @@
             // info filled in (to prevent map breaking if
             // someone is currently editing spreadsheet)
             var theLatestSpot = findLatestCompleteSpot(gData);
-            if (theLatestSpot["running"] == "yes") {
-                document.getElementById("running").src = "icons\biking.svg";
-            }
             var latestSpot = Sheetsee.ich.latestSpot({
                 rows: theLatestSpot
             })
             // set it and pan to it
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
+
+            if (theLatestSpot["running"] == "yes") {
+                document.getElementById("running").src = "icons\biking.svg";
+            }
 
             // when someone clicks on a row, highlight it and
             // re-center the map
