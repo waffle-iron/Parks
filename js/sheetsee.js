@@ -16156,7 +16156,9 @@ function searchTable(opts, searchTerm) {
     opts.data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase();
       if (stringObject.match(searchTerm.toLowerCase())) {
+        console.log(strUser);
         if (strUser != "View All Parks") {
+          console.log(object[dropdown]);
           if (object[dropdown] == "yes") {
             filteredList.push(object);
           }
