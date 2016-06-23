@@ -86,9 +86,9 @@
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
-            <!--<br>
-            <p class="descText">Description: {{description}}</p>
-            <br>-->
+            <br>
+            <p id="rdescription" class="descText">Description: {{description}}</p>
+            <br>
             <img id="rbiking" src ="icons\biking.svg" style="width:0%;">
             <img id="rhiking" src ="icons\hiking.svg" style="width:0%;">
             <img id="rpaddling" src ="icons\paddling.svg" style="width:0%;">
@@ -112,9 +112,9 @@
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
-            <!--<br>
-            <p class="descText">Description: {{description}}</p>
-            <br>-->
+            <br>
+            <p id="description" class="descText">Description: {{description}}</p>
+            <br>
             <img id="biking" src ="icons\biking.svg" style="width:0%;">
             <img id="hiking" src ="icons\hiking.svg" style="width:0%;">
             <img id="paddling" src ="icons\paddling.svg" style="width:0%;">
@@ -232,8 +232,10 @@
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
                 if (dataElement[0].biking == "yes") {
+                    console.log("yes biking!");
                     document.getElementById("biking").style="width:10%;";
                 }
+                console.log(dataElement[0].biking);
                 if (dataElement[0].hiking == "yes") {
                     document.getElementById("hiking").style="width:10%;";
                 }
