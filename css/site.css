@@ -1,25 +1,12 @@
 /* Page Specific CSS */
 
 body {font-family: Lato; background: #fcfcfc; color: #333; font-size: 16px; border: 52px #F8F8F8 solid; margin: 0px; padding: 20px 20px 200px 20px;}
-h1 {font-size: 80px; font-family: Amatic SC; font-weight: normal; margin: 0px;}
-h2 {font-size: 50px; font-family: Amatic SC; font-weight: normal; margin: 11px 0px;}
-h3 {font-family: Amatic SC; font-size: 30px; margin: 10px 0px;}
+h1 {font-size: 80px; font-family: 'Gotham Book', Gotham-Book, Arial, sans-serif; font-weight: normal; margin: 0px;}
+h2 {font-size: 50px; font-family: 'Gotham Book', Gotham-Book, Arial, sans-serif; font-weight: normal; margin: 11px 0px;}
+h3 {font-family: 'Gotham Book', Gotham-Book, Arial, sans-serif; font-size: 30px; margin: 10px 0px;}
 h4 {font-family: Lato; font-size: 24px;}
 
 .header {background:#fff; }
-.header::after{
-    position:absolute;
-    top:100%;
-    left:0px;
-    content:" ";
-    width:100%;
-    height:2px;
-    background: #a60000;
-    background-image: -webkit-linear-gradient(left, #B2B2B2, #a60000, #B2B2B2);
-    background-image:    -moz-linear-gradient(left, #B2B2B2, #a60000, #B2B2B2);
-    background-image:     -ms-linear-gradient(left, #B2B2B2, #a60000, #B2B2B2);
-    background-image:      -o-linear-gradient(left, #B2B2B2, #a60000, #B2B2B2);
- }
 
 img {width: 100%;}
 p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #FD9393 solid;}
@@ -69,7 +56,7 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 #info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
 #info {border-top: 4px #F8F8F8 solid;}
 
-#hackSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
+#hackSpotsTable {cursor: pointer; background: #fcfcfc; overflow-x: auto; padding-bottom: 20px;}
 #hackSpotsTable table {min-width: 900px;}
 #hackSpotsTable .tHeader:hover {color: #FF4646;}
 .tHeader::after {content: " \2193 \2191 "; font-size: 10px; padding-left: 3px;}
