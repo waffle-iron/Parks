@@ -192,6 +192,8 @@
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
             if (theLatestSpot.b_path != 0) {
+                console.log(theLatestSpot.b_path);
+                console.log(theLatestSpot.bpath);
                 document.getElementById("rbiking").style="width:10%;";
             }
             if (theLatestSpot.hiking == "yes") {
