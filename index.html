@@ -109,7 +109,7 @@
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
-            <img id="biking" src ="icons\biking.svg" style="width:0%;">
+            <img iclead="biking" src ="icons\biking.svg" style="width:0%;">
             <img id="hiking" src ="icons\hiking.svg" style="width:0%;">
             <img id="paddling" src ="icons\paddling.svg" style="width:0%;">
             <img id="running" src ="icons\running.svg" style="width:0%;">
@@ -191,7 +191,7 @@
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
-            if (theLatestSpot.biking == "yes") {
+            if (theLatestSpot.b_path != 0) {
                 document.getElementById("rbiking").style="width:10%;";
             }
             if (theLatestSpot.hiking == "yes") {
@@ -225,7 +225,7 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
-                if (dataElement[0].biking == "yes") {
+                if (dataElement[0].b_path != 0) {
                     document.getElementById("biking").style="width:10%;";
                 }
                 if (dataElement[0].hiking == "yes") {
@@ -278,7 +278,7 @@
                 $('#latestSpot').css("display", "none")
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
 
-                if (dataElement[0].biking == "yes") {
+                if (dataElement[0].b_path != 0) {
                     document.getElementById("biking").src ="icons\\biking.svg";
                 }
                 if (dataElement[0].hiking == "yes") {
