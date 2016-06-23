@@ -16111,7 +16111,7 @@ module.exports.initiateTableFilter = function(opts) {
   $('.clear').on("click", function() {
     $(this.id + ".noMatches").css("visibility", "hidden");
     $(this.id + opts.filterDiv).val("");
-    makeTable(opts);
+    searchTable(opts, "");
   });
   $(opts.filterDiv).keyup(function(e) {
     var text = $(e.target).val();
