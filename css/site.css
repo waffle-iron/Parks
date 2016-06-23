@@ -42,7 +42,7 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 .fauxButton .selected {background-color: #FF4646;}
 .colorText {color: #FF4646; text-transform: uppercase; font-weight: 700;}
 .filterText {font-size: 14px; font-weight: 300; display: inline;}
-.descText {font-size: 14px; font-weight: 300; display: inline; margin-bottom: 150%;}
+.descText {font-size: 14px; font-weight: 300; display: inline;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
