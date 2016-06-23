@@ -191,9 +191,7 @@
             $('#latestSpot').html(latestSpot)
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
-            if (theLatestSpot.b_path != 0) {
-                console.log(theLatestSpot.b_path);
-                console.log(theLatestSpot.bpath);
+            if (theLatestSpot.bpath != 0) {
                 document.getElementById("rbiking").style="width:10%;";
             }
             if (theLatestSpot.hiking == "yes") {
@@ -227,7 +225,7 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
-                if (dataElement[0].b_path != 0) {
+                if (dataElement[0].bpath != 0) {
                     document.getElementById("biking").style="width:10%;";
                 }
                 if (dataElement[0].hiking == "yes") {
@@ -280,7 +278,7 @@
                 $('#latestSpot').css("display", "none")
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
 
-                if (dataElement[0].b_path != 0) {
+                if (dataElement[0].bpath != 0) {
                     document.getElementById("biking").src ="icons\\biking.svg";
                 }
                 if (dataElement[0].hiking == "yes") {
