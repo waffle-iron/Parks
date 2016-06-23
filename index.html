@@ -74,7 +74,7 @@
         <table>
             <tr><th class="tHeader">Distance</th><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td id="demo">{{distance}}</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">G Map</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td id="demo">{{distance}}</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">G Map</a></td></tr>
             {{/rows}}
         </table>
 
@@ -87,7 +87,7 @@
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
             <br>
-            <p id="rdescription" class="descText">Description: {{shortdescription}}. {{description}}</p>
+            <p id="rdescription" class="descText">Description: {{description}}</p>
             <br>
             <img id="rbiking" src ="icons\biking.svg" style="width:0%;">
             <img id="rhiking" src ="icons\hiking.svg" style="width:0%;">
@@ -96,7 +96,7 @@
             <img id="rswimming" src ="icons\swimming.svg" style="width:0%;">
             <img id="rwalking" src ="icons\walking.svg" style="width:0%;">
             <ul>
-                <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">View in Google Maps</a></li>
             </ul>
         {{/rows}}
     </script>
@@ -112,7 +112,7 @@
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
             <br>
-            <p id="description" class="descText">Description: {{shortdescription}}. {{description}}</p>
+            <p id="description" class="descText">Description: {{description}}</p>
             <br>
             <img id="biking" src ="icons\biking.svg" style="width:0%;">
             <img id="hiking" src ="icons\hiking.svg" style="width:0%;">
@@ -121,7 +121,7 @@
             <img id="swimming" src ="icons\swimming.svg" style="width:0%;">
             <img id="walking" src ="icons\walking.svg" style="width:0%;">
             <ul>
-                <li><a href="https://maps.google.com/maps?q={{type}},{{town}},{{state}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">View in Google Maps</a></li>
             </ul>
         {{/rows}}
     </script>
@@ -196,22 +196,22 @@
             map.setView([theLatestSpot.lat, theLatestSpot.long], 14)
 
             if (theLatestSpot.biking == "yes") {
-                document.getElementById("rbiking").style.width="10%";
+                document.getElementById("rbiking").style="width:10%;";
             }
             if (theLatestSpot.hiking == "yes") {
-                document.getElementById("rhiking").style.width="10%";
+                document.getElementById("rhiking").style="width:10%;";
             }
             if (theLatestSpot.paddling == "yes") {
-                document.getElementById("rpaddling").style.width="10%";
+                document.getElementById("rpaddling").style="width:10%;";
             }
             if (theLatestSpot.running == "yes") {
-                document.getElementById("rrunning").style.width="10%";
+                document.getElementById("rrunning").style="width:10%;";
             }
             if (theLatestSpot.swimming == "yes") {
-                document.getElementById("rswimming").style.width="10%";
+                document.getElementById("rswimming").style="width:10%;";
             }
             if (theLatestSpot.walking == "yes") {
-                document.getElementById("rwalking").style.width="10%";
+                document.getElementById("rwalking").style="width:10%;";
             }
 
             // when someone clicks on a row, highlight it and
@@ -230,22 +230,22 @@
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 14)
                 if (dataElement[0].biking == "yes") {
-                    document.getElementById("biking").style.width="10%";
+                    document.getElementById("biking").style="width:10%;";
                 }
                 if (dataElement[0].hiking == "yes") {
-                    document.getElementById("hiking").style.width="10%";
+                    document.getElementById("hiking").style="width:10%;";
                 }
                 if (dataElement[0].paddling == "yes") {
-                    document.getElementById("paddling").style.width="10%";
+                    document.getElementById("paddling").style="width:10%;";
                 }
                 if (dataElement[0].running == "yes") {
-                    document.getElementById("running").style.width="10%";
+                    document.getElementById("running").style="width:10%;";
                 }
                 if (dataElement[0].swimming == "yes") {
-                    document.getElementById("swimming").style.width="10%";
+                    document.getElementById("swimming").style="width:10%;";
                 }
                 if (dataElement[0].walking == "yes") {
-                    document.getElementById("walking").style.width="10%";
+                    document.getElementById("walking").style="width:10%;";
                 }
             })
 
@@ -283,22 +283,22 @@
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
 
                 if (dataElement[0].biking == "yes") {
-                    document.getElementById("biking").style.width="10%";;
+                    document.getElementById("biking").src ="icons\\biking.svg";
                 }
                 if (dataElement[0].hiking == "yes") {
-                    document.getElementById("hiking").style.width="10%";;
+                    document.getElementById("hiking").src ="icons\\hiking.svg";
                 }
                 if (dataElement[0].paddling == "yes") {
-                    document.getElementById("paddling").style.width="10%";;
+                    document.getElementById("paddling").src ="icons\\paddling.svg";
                 }
                 if (dataElement[0].running == "yes") {
-                    document.getElementById("running").style.width="10%";;
+                    document.getElementById("running").src ="icons\\running.svg";
                 }
                 if (dataElement[0].swimming == "yes") {
-                    document.getElementById("swimming").style.width="10%";;
+                    document.getElementById("swimming").src ="icons\\swimming.svg";
                 }
                 if (dataElement[0].walking == "yes") {
-                    document.getElementById("walking").style.width="10%";;
+                    document.getElementById("walking").src ="icons\\walking.svg";
                 }
             })
 
