@@ -74,7 +74,7 @@
         <table>
             <tr><th class="tHeader">Distance</th><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
             {{#rows}}
-                <tr id="{{rowNumber}}" class="spotRow"><td id="demo">{{distance}}</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">G Map</a></td></tr>
+                <tr id="{{rowNumber}}" class="spotRow"><td id="demo">{{distance}}</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
             {{/rows}}
         </table>
 
@@ -96,7 +96,7 @@
             <img id="rswimming" src ="icons\swimming.svg" style="width:0%;">
             <img id="rwalking" src ="icons\walking.svg" style="width:0%;">
             <ul>
-                <li><a href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">View in Google Maps</a></li>
             </ul>
         {{/rows}}
     </script>
@@ -121,7 +121,7 @@
             <img id="swimming" src ="icons\swimming.svg" style="width:0%;">
             <img id="walking" src ="icons\walking.svg" style="width:0%;">
             <ul>
-                <li><a href="https://maps.google.com/maps/place/{{plat}},{{plong}}" target="_blank">View in Google Maps</a></li>
+                <li><a href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">View in Google Maps</a></li>
             </ul>
         {{/rows}}
     </script>
