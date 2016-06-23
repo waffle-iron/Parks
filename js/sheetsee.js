@@ -16135,7 +16135,6 @@ function searchTable(opts, searchTerm) {
           if ((stringObject.includes(term_array[i].toLowerCase())) == false) {
             does_match = false;
           }}
-      console.log(dropdown);
       if (strUser != "View All Parks") {
         if (object[dropdown] == "no") {
           does_match = false;
@@ -16150,9 +16149,7 @@ function searchTable(opts, searchTerm) {
     opts.data.forEach(function(object) {
       var stringObject = JSON.stringify(object).toLowerCase();
       if (stringObject.match(searchTerm.toLowerCase())) {
-        console.log(strUser);
         if (strUser != "View All Parks") {
-          console.log(object[dropdown]);
           if (object[dropdown] == "yes") {
             filteredList.push(object);
           }
