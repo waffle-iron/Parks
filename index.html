@@ -112,8 +112,7 @@
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
             <br>
-            <p class="filterText">Description: {{description}}</p>
-
+            <p class="descText">Description: {{description}}</p>
             <img id="biking" src ="icons\biking.svg" style="width:0%;">
             <img id="hiking" src ="icons\hiking.svg" style="width:0%;">
             <img id="paddling" src ="icons\paddling.svg" style="width:0%;">
@@ -155,9 +154,9 @@
         // so long, so messy
         function showInfo(gData) {
             for (var i=0; i < gData.length; i++) {
-                latDiff = plat - gData[i].lat;
-                longDiff = plong - gData[i].long;
-                var radlat1 = Math.PI * plat/180;
+                latDiff = 41.8380136 - gData[i].lat;
+                longDiff = -71.4358733 - gData[i].long;
+                var radlat1 = Math.PI * 41.8380136/180;
                 var radlat2 = Math.PI * gData[i].lat/180;
                 var radtheta = Math.PI * longDiff/180;
                 var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
