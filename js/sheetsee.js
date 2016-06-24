@@ -16190,8 +16190,12 @@ function sortThings(opts, sorter, sorted, tableDiv) {
 
 module.exports.resolveDataTitle = resolveDataTitle
 function resolveDataTitle(string) {
-  var adjusted = string.toLowerCase().replace(/\s/g, '').replace(/\W/g, '')
-  return adjusted
+    if (isNaN(string.substring(0,3))) {
+        var adjusted = string.toLowerCase().replace(/\s/g, '').replace(/\W/g, '');
+    } else {
+        var adjusted = parseInt(string.substring(0,3));
+    }
+  return adjusted;
 }
 
 module.exports.initiateTableSorter = initiateTableSorter
