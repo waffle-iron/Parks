@@ -16178,8 +16178,9 @@ function sortThings(opts, sorter, sorted, tableDiv) {
     if (a[sorter]>b[sorter]) return 1
     return 0
   })
-  if (sorted === "descending") opts.data.reverse()
-  makeTable(opts)
+  if (sorted === "descending") opts.data.reverse();
+  searchTerm = document.getElementById("tableFilter").value;
+  searchTable(opts, searchTerm);
   var header
   $(tableDiv + " .tHeader").each(function(i, el){
     var contents = resolveDataTitle($(el).text())
