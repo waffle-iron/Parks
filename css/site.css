@@ -38,9 +38,9 @@ ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transfor
 ul.nav li a {border: none;}
 ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
-ul.nav2 {border-bottom: 0px; list-style-type: none; margin: 0px 20px; padding: 0; overflow: hidden; background-color: #f3f3f3;}
+ul.nav2 {list-style-type: none; margin: 0px 20px; padding: 0; overflow: hidden; background-color: #f3f3f3;}
 ul.nav2 li {float: left;}
-ul.nav2 li a {display: block; color: #666; text-align: center; padding: 14px 16px; text-decoration: none;}
+ul.nav2 li a {border-bottom: 0px; display: block; color: #666; text-align: center; padding: 14px 16px; text-decoration: none;}
 ul.nav2 li a:hover:not(.active) {background-color: #ddd;}
 ul.nav2 li a.active {color: white; background-color: #47CCFC;}
 
