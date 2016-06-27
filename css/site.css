@@ -1,6 +1,6 @@
 /* Page Specific CSS */
 
-body {font-family: Lato; background: #fcfcfc; color: #333; font-size: 16px; margin: 0px;}
+body {font-family: Lato; background: #EAE4CF; color: #333; font-size: 16px; margin: 0px;}
 h1 {font-size: 80px; font-family: Amatic SC; font-weight: normal; margin: 0px;}
 h2 {font-size: 50px; font-family: Amatic SC; font-weight: normal; margin: 11px 0px;}
 h3 {font-family: Amatic SC; font-size: 30px; margin: 10px 0px;}
@@ -24,7 +24,7 @@ code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font
 
 .red-text {color: #FD9393;}
 
-#map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA; margin-left: 20px;}
+#map {height: 500px; max-width: 530px; min-width: 60%; background: #DADADA; margin-left: 20px;}
 #map a {border: none;}
 
 .container {margin: 0px auto;}
@@ -45,6 +45,7 @@ ul.nav2 li a:hover:not(.active) {background-color: #016054;}
 ul.nav2 li a.active {background-color: #016054;}
 
 #wrapper {margin: 0px auto; /*margin-left: 250px;*/}
+div#middle {margin-top: 70px;}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
 .button:hover {background: #B9FCFC; color: #47CCFC;}
@@ -56,7 +57,7 @@ ul.nav2 li a.active {background-color: #016054;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
-#rightSide {height: 400px; max-width: 400px; width: 100%; float: right; padding-top: 5px; padding-left: 10px; padding-right: 20px;}
+#rightSide {height: 400px; max-width: 400px; width: 100%; float: right; padding-top: 5px; padding-left: 10px; padding-right: 5%;}
 #selectedSpot {display: none;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
