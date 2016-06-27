@@ -11,6 +11,7 @@
 /* Table */
 
   table {text-align: left; width: 100%; border: 1px solid black; background-color: #EFEDE1;}
+  div#tableContainer {clear: both;}
   th {padding: 10px 0px; border-bottom: 1px solid #ddd;}
   td, text {padding: 3px 0 3px 0; font-size: 14px;}
   #tableFilter {margin: 12px 0px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-family: Merriweather; color: #fff; font-size: 13px; height: 22px;}
