@@ -38,11 +38,11 @@ ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transfor
 ul.nav li a {border: none;}
 ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 
-ul.nav2 {list-style-type: none; padding: 0px; margin: 0px auto; background-color: #f3f3f3;}
+ul.nav2 {list-style-type: none; padding: 0px; margin: 0px auto;}
 ul.nav2 li {float: left; margin: auto; width: 50%;}
-ul.nav2 li a {border-bottom: 0px; display: block; color: #666; text-align: center; padding: 14px 16px; text-decoration: none;}
-ul.nav2 li a:hover:not(.active) {background-color: #ddd;}
-ul.nav2 li a.active {color: white; background-color: #47CCFC;}
+ul.nav2 li a {background-color: #008574; font-size: 18px; font-weight: bolder; border-bottom: 0px; display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;}
+ul.nav2 li a:hover:not(.active) {background-color: #016054;}
+ul.nav2 li a.active {background-color: #016054;}
 
 #wrapper {margin: 0px auto; /*margin-left: 250px;*/}
 
