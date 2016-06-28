@@ -79,12 +79,21 @@
     </script>
 
     <p id="demo"></p>
-    
+
     <script id="hackSpotsTable" type="text/html">
         <table>
         <tr><th id="distHeader" class="tHeader">Distance</th><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
         {{#rows}}
         <tr id="{{rowNumber}}" class="spotRow"><td id="distColumn">{{distance}} miles</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
+        {{/rows}}
+        </table>
+    </script>
+
+    <script id="hackSpotsTable2" type="text/html">
+        <table>
+        <tr><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
+        {{#rows}}
+        <tr id="{{rowNumber}}" class="spotRow"><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
         {{/rows}}
         </table>
     </script>
@@ -174,6 +183,12 @@
                 dist = dist * 60 * 1.1515;
                 gData[i].distance = Math.round(dist*10)/10.0;
             }
+
+            if (typeof plat === 'undefined') {
+                document.getElementById("hackSpotsTable").id = "hackSpotsTable3";
+                document.getElementById("hackSpotsTable2").id = "hackSpotsTable";
+            }
+
             tableOptions = {
                 "data": gData,
                 "tableDiv": "#hackSpotsTable",
