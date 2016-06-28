@@ -78,15 +78,19 @@
         Sheetsee.searchTable(tableOptions, text);
         $('.spotRow').first().click();
     }
+    if (typeof plat === 'undefined') {
+        document.getElementById("distHeader").style.display = "none";
+        document.getElementById("distColumn").style.display = "none";
+    }
     </script>
 
     <p id="demo"></p>
 
     <script id="hackSpotsTable" type="text/html">
         <table>
-        <tr><th class="tHeader">Distance</th><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
+        <tr><th id="distHeader" class="tHeader">Distance</th><th class="tHeader">Name</th><th class="tHeader">Type</th><th class="tHeader">Town</th><th class="">Elsewhere</th></tr>
         {{#rows}}
-        <tr id="{{rowNumber}}" class="spotRow"><td id="demo">{{distance}} miles</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
+        <tr id="{{rowNumber}}" class="spotRow"><td id="distColumn">{{distance}} miles</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
         {{/rows}}
         </table>
     </script>
