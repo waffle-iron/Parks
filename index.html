@@ -89,19 +89,7 @@
         <tr id="{{rowNumber}}" class="spotRow"><td id="distColumn">{{distance}} miles</td><td>{{name}}</td><td>{{type}}</td><td>{{town}}</td><td><a class="button" href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">G Map</a></td></tr>
         {{/rows}}
         </table>
-        <script type="text/javascript">
-            console.log('script running....');
-            if (typeof plat === 'undefined') {
-              console.log('variable undefined....');
-                document.getElementById("distHeader").style.display = "none";
-                document.getElementById("distColumn").style.display = "none";
-            }
-        </script>
     </script>
-
-    </script>>
-
-    </script>>
 
     <script id="latestSpot" type="text/html">
         {{#rows}}
@@ -348,6 +336,15 @@
             window.location.hash = $(this).val()
             $('.spotRow').first().click()
         })
+    </script>
+
+    <script type="text/javascript">
+        console.log('script running....');
+        if (typeof plat === 'undefined') {
+          console.log('variable undefined....');
+          document.getElementById("distHeader").style.display = "none";
+          document.getElementById("distColumn").style.display = "none";
+        }
     </script>
 </body>
 </html>
