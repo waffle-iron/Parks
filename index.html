@@ -78,10 +78,6 @@
         Sheetsee.searchTable(tableOptions, text);
         $('.spotRow').first().click();
     }
-    if (typeof plat === 'undefined') {
-        document.getElementById("distHeader").style.display = "none";
-        document.getElementById("distColumn").style.display = "none";
-    }
     </script>
 
     <p id="demo"></p>
@@ -94,6 +90,17 @@
         {{/rows}}
         </table>
     </script>
+
+    <script type="text/javascript">
+        if (typeof plat === 'undefined') {
+            document.getElementById("distHeader").style.display = "none";
+            document.getElementById("distColumn").style.display = "none";
+        }
+    </script>
+
+    </script>>
+
+    </script>>
 
     <script id="latestSpot" type="text/html">
         {{#rows}}
