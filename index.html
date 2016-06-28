@@ -205,7 +205,7 @@
             })
             // set it and pan to it
             $('#latestSpot').html(latestSpot)
-            map.setView([theLatestSpot.lat, theLatestSpot.long], 16, animate)
+            map.setView([theLatestSpot.lat, theLatestSpot.long], 16)
 
             if (theLatestSpot.biking == "yes") {
                 document.getElementById("rbiking").style.width="10%";
@@ -240,7 +240,7 @@
                 $('#latestSpot').css("display", "none")
                 $('#selectedSpot').html(selectedSpot).css("display", "inline")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-                map.setView(selectedCoords, 16, animate)
+                map.setView(selectedCoords, 16)
                 if (dataElement[0].biking == "yes") {
                     document.getElementById("biking").style.width="10%";
                 }
@@ -319,7 +319,7 @@
                 $('.spotRow').removeClass("selectedRow")
                 $('#latestSpot').css("display", "inline")
                 $('#selectedSpot').css("display", "none")
-                map.setView([0,0], 1, animate)
+                map.setView([0,0], 1)
             })
 
             // find total number of spots added
