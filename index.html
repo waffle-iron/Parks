@@ -90,7 +90,9 @@
         {{/rows}}
         </table>
         <script type="text/javascript">
+            console.log('script running....');
             if (typeof plat === 'undefined') {
+              console.log('variable undefined....');
                 document.getElementById("distHeader").style.display = "none";
                 document.getElementById("distColumn").style.display = "none";
             }
