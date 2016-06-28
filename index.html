@@ -329,12 +329,6 @@
                 $('#tableFilter').val(window.location.hash.substring(1)).keyup()
                 $('.spotRow').first().click()
             }
-            console.log('script running....');
-            if (typeof plat === 'undefined') {
-              console.log('variable undefined....');
-              document.getElementById("distHeader").style.display = "none";
-              document.getElementById("distColumn").style.display = "none";
-            }
         }
         $(document).on('keyup', '#tableFilter', function() {
             window.location.hash = $(this).val()
