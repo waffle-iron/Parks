@@ -185,15 +185,19 @@
             }
 
             if (typeof plat === 'undefined') {
-                document.getElementById("hackSpotsTable").id = "hackSpotsTable3";
-                document.getElementById("hackSpotsTable2").id = "hackSpotsTable";
-            }
+                document.getElementById("hackSpotsTable").id = "hackSpotsTable2";
+                tableOptions = {
+                    "data": gData,
+                    "tableDiv": "#hackSpotsTable2",
+                    "filterDiv": "#tableFilter"
+                }
+            } else {
 
             tableOptions = {
                 "data": gData,
                 "tableDiv": "#hackSpotsTable",
                 "filterDiv": "#tableFilter"
-            }
+            }}
             // make the table, and the search bar
             Sheetsee.makeTable(tableOptions)
             Sheetsee.initiateTableFilter(tableOptions)
