@@ -188,7 +188,6 @@
                 }
             } else {
                 for (var i=0; i < gData.length; i++) {
-                    latDiff = plat - gData[i].lat;
                     longDiff = plong - gData[i].long;
                     var radlat1 = Math.PI * plat/180;
                     var radlat2 = Math.PI * gData[i].lat/180;
@@ -200,10 +199,9 @@
                     gData[i].distance = Math.round(dist*10)/10.0;
                 }
                 tableOptions = {
-                    "data": gData,
-                    "tableDiv": "#hackSpotsTable",
-                    "filterDiv": "#tableFilter"
-                }
+                "data": gData,
+                "tableDiv": "#hackSpotsTable",
+                "filterDiv": "#tableFilter"}
             }
             // make the table, and the search bar
             Sheetsee.makeTable(tableOptions)
@@ -291,7 +289,7 @@
                 var latestCompleteSpot = []
                 var startWithLatestRow = data.reverse()
                 startWithLatestRow.forEach(function(row){
-                    if (!row.distance || !row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
+                    if (!row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
                     else latestCompleteSpot.push(row)
                 })
                 return latestCompleteSpot[0]
