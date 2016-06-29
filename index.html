@@ -119,6 +119,27 @@
         {{/rows}}
     </script>
 
+    <script id="latestSpot2" type="text/html">
+        {{#rows}}
+            <h4 class="fauxButton">MOST RECENT SPOT</h4>
+            <h2>{{name}}</h2>
+            <p class="colorText">{{street}} Street<p>
+            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
+            <br>
+            <p id="rdescription" class="descText">Description: {{shortdescription}}. {{description}}</p>
+            <br>
+            <img id="rbiking" src ="icons/biking.svg" style="width:0%;">
+            <img id="rhiking" src ="icons/hiking.svg" style="width:0%;">
+            <img id="rpaddling" src ="icons/paddling.svg" style="width:0%;">
+            <img id="rrunning" src ="icons/running.svg" style="width:0%;">
+            <img id="rswimming" src ="icons/swimming.svg" style="width:0%;">
+            <img id="rwalking" src ="icons/walking.svg" style="width:0%;">
+            <ul>
+                <li><a href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">View in Google Maps</a></li>
+            </ul>
+        {{/rows}}
+    </script>
+
     <script id="theNumberofSpots" type="text/html">
         <p><strong><span class="red-text">{{numberOfSpots}}</span> recreation areas strong!</p>
     </script>
@@ -129,6 +150,27 @@
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
+            <br>
+            <p id="description" class="descText">Description: {{shortdescription}}. {{description}}</p>
+            <br>
+            <img id="biking" src ="icons/biking.svg" style="width:0%;">
+            <img id="hiking" src ="icons/hiking.svg" style="width:0%;">
+            <img id="paddling" src ="icons/paddling.svg" style="width:0%;">
+            <img id="running" src ="icons/running.svg" style="width:0%;">
+            <img id="swimming" src ="icons/swimming.svg" style="width:0%;">
+            <img id="walking" src ="icons/walking.svg" style="width:0%;">
+            <ul>
+                <li><a href="https://maps.google.com/maps/place/{{lat}},{{long}}" target="_blank">View in Google Maps</a></li>
+            </ul>
+        {{/rows}}
+    </script>
+
+    <script id="selectedSpot2" type="text/html">
+        {{#rows}}
+            <h4 class="fauxButton">SELECTED SPOT</h4>
+            <h2>{{name}}</h2>
+            <p class="colorText">{{street}} Street<p>
+            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <br>
             <p id="description" class="descText">Description: {{shortdescription}}. {{description}}</p>
             <br>
@@ -160,6 +202,7 @@
             plong = position.coords.longitude;
             console.log("it worked!");
             document.getElementById("hackSpotsTable2").id = "hackSpotsTable";
+            document.getElementById("latestSpot2").id = "latestSpot";
             if (typeof tableOptions !== 'undefined') {
                 console.log('tableOptions is defined');
                 showInfo(tableOptions.data);
@@ -179,21 +222,9 @@
 
         // so long, so messy
         function showInfo(gData) {
-            for (var i=0; i < gData.length; i++) {
-                latDiff = 41.8380136 - gData[i].lat;
-                longDiff = -71.4358733 - gData[i].long;
-                var radlat1 = Math.PI * 41.8380136/180;
-                var radlat2 = Math.PI * gData[i].lat/180;
-                var radtheta = Math.PI * longDiff/180;
-                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-                dist = Math.acos(dist);
-                dist = dist * 180/Math.PI;
-                dist = dist * 60 * 1.1515;
-                gData[i].distance = Math.round(dist*10)/10.0;
-            }
-
             if (typeof plat === 'undefined') {
                 document.getElementById("hackSpotsTable").id = "hackSpotsTable2";
+                document.getElementById("latestSpot").id = "latestSpot2";
                 tableOptions = {
                     "data": gData,
                     "tableDiv": "#hackSpotsTable2",
@@ -204,6 +235,19 @@
                 "data": gData,
                 "tableDiv": "#hackSpotsTable",
                 "filterDiv": "#tableFilter"}
+
+                for (var i=0; i < gData.length; i++) {
+                    latDiff = plat - gData[i].lat;
+                    longDiff = plong - gData[i].long;
+                    var radlat1 = Math.PI * plat/180;
+                    var radlat2 = Math.PI * gData[i].lat/180;
+                    var radtheta = Math.PI * longDiff/180;
+                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    dist = Math.acos(dist);
+                    dist = dist * 180/Math.PI;
+                    dist = dist * 60 * 1.1515;
+                    gData[i].distance = Math.round(dist*10)/10.0;
+                }
             }
             // make the table, and the search bar
             Sheetsee.makeTable(tableOptions)
@@ -227,7 +271,11 @@
                 rows: theLatestSpot
             })
             // set it and pan to it
-            $('#latestSpot').html(latestSpot)
+            if (typeof plat !== 'undefined') {
+                $('#latestSpot').html(latestSpot)
+            } else {
+                $('#latestSpot2').html(latestSpot)
+            }
             map.setView([theLatestSpot.lat, theLatestSpot.long], 16)
 
             if (theLatestSpot.biking == "yes") {
@@ -260,8 +308,13 @@
                 var selectedSpot = Sheetsee.ich.selectedSpot({
                     rows: dataElement
                 })
-                $('#latestSpot').css("display", "none")
-                $('#selectedSpot').html(selectedSpot).css("display", "inline")
+                if (typeof plat !== 'undefined') {
+                    $('#latestSpot').css("display", "none")
+                    $('#selectedSpot').html(selectedSpot).css("display", "inline")
+                } else {
+                  $('#latestSpot2').css("display", "none")
+                  $('#selectedSpot2').html(selectedSpot).css("display", "inline")
+                }
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
                 map.setView(selectedCoords, 16)
                 if (dataElement[0].biking == "yes") {
@@ -288,8 +341,8 @@
             // is complete and doesn't show rows that are
             // actively being edited by folk
             function findLatestCompleteSpot(data) {
-                var latestCompleteSpot = []
-                var startWithLatestRow = data.reverse()
+                var latestCompleteSpot = [];
+                var startWithLatestRow = data.reverse();
                 startWithLatestRow.forEach(function(row){
                     if (!row.distance || !row.lat || !row.long || !row.name || !row.type || !row.town || !row.state ) return
                     else latestCompleteSpot.push(row)
@@ -314,8 +367,13 @@
                 // center the map on the selected element
                 map.panTo([dataElement[0].lat, dataElement[0].long])
                 // update the spot listing
-                $('#latestSpot').css("display", "none")
-                $('#selectedSpot').html(selectedSpot).css("display", "inline")
+                if (typeof plat !== 'undefined') {
+                    $('#latestSpot').css("display", "none");
+                    $('#selectedSpot').html(selectedSpot).css("display", "inline");
+                } else {
+                  $('#latestSpot2').css("display", "none");
+                  $('#selectedSpot2').html(selectedSpot).css("display", "inline");
+                }
 
                 if (dataElement[0].biking == "yes") {
                     document.getElementById("biking").style.width="10%";
@@ -338,12 +396,21 @@
             })
 
             // reset the map, zoom out, and recenter on 0,0
-            $('.resetMap').click(function() {
-                $('.spotRow').removeClass("selectedRow")
-                $('#latestSpot').css("display", "inline")
-                $('#selectedSpot').css("display", "none")
-                map.setView([0,0], 1)
-            })
+            if (typeof plat !== 'undefined') {
+                $('.resetMap').click(function() {
+                    $('.spotRow').removeClass("selectedRow")
+                    $('#latestSpot').css("display", "inline")
+                    $('#selectedSpot').css("display", "none")
+                    map.setView([0,0], 1)
+                })
+            } else {
+                $('.resetMap').click(function() {
+                    $('.spotRow').removeClass("selectedRow")
+                    $('#latestSpot2').css("display", "inline")
+                    $('#selectedSpot2').css("display", "none")
+                    map.setView([0,0], 1)
+                })
+            }
 
             // find total number of spots added
             var theNumberofSpots = Sheetsee.ich.theNumberofSpots({
