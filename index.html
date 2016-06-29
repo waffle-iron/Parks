@@ -103,7 +103,7 @@
             <h4 class="fauxButton">MOST RECENT SPOT</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
-            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
+            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <br>
             <p id="rdescription" class="descText">Description: {{shortdescription}}. {{description}}</p>
             <br>
@@ -128,7 +128,7 @@
             <h4 class="fauxButton">SELECTED SPOT</h4>
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
-            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}<br/> {{distance}} Miles Away</p>
+            <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
             <br>
             <p id="description" class="descText">Description: {{shortdescription}}. {{description}}</p>
             <br>
@@ -179,19 +179,6 @@
 
         // so long, so messy
         function showInfo(gData) {
-            for (var i=0; i < gData.length; i++) {
-                latDiff = 41.8380136 - gData[i].lat;
-                longDiff = -71.4358733 - gData[i].long;
-                var radlat1 = Math.PI * 41.8380136/180;
-                var radlat2 = Math.PI * gData[i].lat/180;
-                var radtheta = Math.PI * longDiff/180;
-                var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-                dist = Math.acos(dist);
-                dist = dist * 180/Math.PI;
-                dist = dist * 60 * 1.1515;
-                gData[i].distance = Math.round(dist*10)/10.0;
-            }
-
             if (typeof plat === 'undefined') {
                 document.getElementById("hackSpotsTable").id = "hackSpotsTable2";
                 tableOptions = {
@@ -201,9 +188,22 @@
                 }
             } else {
                 tableOptions = {
-                "data": gData,
-                "tableDiv": "#hackSpotsTable",
-                "filterDiv": "#tableFilter"}
+                    "data": gData,
+                    "tableDiv": "#hackSpotsTable",
+                    "filterDiv": "#tableFilter"
+                }
+                for (var i=0; i < gData.length; i++) {
+                    latDiff = plat - gData[i].lat;
+                    longDiff = plong - gData[i].long;
+                    var radlat1 = Math.PI * plat/180;
+                    var radlat2 = Math.PI * gData[i].lat/180;
+                    var radtheta = Math.PI * longDiff/180;
+                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    dist = Math.acos(dist);
+                    dist = dist * 180/Math.PI;
+                    dist = dist * 60 * 1.1515;
+                    gData[i].distance = Math.round(dist*10)/10.0;
+                }
             }
             // make the table, and the search bar
             Sheetsee.makeTable(tableOptions)
