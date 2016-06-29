@@ -187,11 +187,6 @@
                     "filterDiv": "#tableFilter"
                 }
             } else {
-                tableOptions = {
-                    "data": gData,
-                    "tableDiv": "#hackSpotsTable",
-                    "filterDiv": "#tableFilter"
-                }
                 for (var i=0; i < gData.length; i++) {
                     latDiff = plat - gData[i].lat;
                     longDiff = plong - gData[i].long;
@@ -203,6 +198,11 @@
                     dist = dist * 180/Math.PI;
                     dist = dist * 60 * 1.1515;
                     gData[i].distance = Math.round(dist*10)/10.0;
+                }
+                tableOptions = {
+                    "data": gData,
+                    "tableDiv": "#hackSpotsTable",
+                    "filterDiv": "#tableFilter"
                 }
             }
             // make the table, and the search bar
