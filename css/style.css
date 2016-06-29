@@ -52,3 +52,7 @@
   .leaflet-popup-content h2 {margin-bottom: 4px;}
 
   img.petThumbs {height: 80px; width: 80px; border-radius: 1000px;}
+
+/* Tagboard */
+
+  .embed.basic-embed {background: #EAE4CF;}
