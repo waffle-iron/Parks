@@ -55,4 +55,5 @@
 
 /* Tagboard */
 
-  .embed.basic-embed {background: #EAE4CF;}
+.embed.basic-embed {background: #EAE4CF; background-color: #EAE4CF;}
+.embed .tb-toolbar {display: none;}
