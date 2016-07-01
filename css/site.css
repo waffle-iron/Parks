@@ -49,7 +49,7 @@ ul.nav2 li a.active {background-color: #016054;}
 #wrapper {margin: 0px auto; /*margin-left: 250px;*/}
 div#middle {margin-top: 70px;}
 #wrapper2 {margin: 20px;}
-#textBox {margin-top: 70px; margin-bottom: 20px; background-color: #EFEDE2;}
+.textBox {margin-top: 70px; margin-bottom: 20px; background-color: #EFEDE2;}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
 .button:hover {background: #B9FCFC; color: #47CCFC;}
