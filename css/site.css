@@ -47,6 +47,7 @@ ul.nav2 li a:hover:not(.active) {background-color: #016054;}
 ul.nav2 li a.active {background-color: #016054;}
 
 #wrapper {margin: 0px auto; /*margin-left: 250px;*/}
+#wrapper2 {margin: 20px;}
 div#middle {margin-top: 70px;}
 
 .button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
