@@ -129,6 +129,7 @@
             <h2>{{name}}</h2>
             <p class="colorText">{{street}} Street<p>
             <p class="colorText">{{town}}{{#state}}, {{state}}{{/state}}{{#postcode}}, {{postcode}}{{/postcode}}</p>
+            <p class="colorText">{{distance2}}</p>
             <br>
             <p id="description" class="descText">Description: {{shortdescription}}. {{description}}</p>
             <br>
@@ -192,7 +193,9 @@
                     dist = Math.acos(dist);
                     dist = dist * 180/Math.PI;
                     dist = dist * 60 * 1.1515;
-                    gData[i].distance = Math.round(dist*10)/10.0;
+                    final_dist = Math.round(dist*10)/10.0;
+                    gData[i].distance = final_dist;
+                    gData[i].distance2 = final_dist.toString() + "Miles Away";
                 }
                 tableOptions = {
                 "data": gData,
