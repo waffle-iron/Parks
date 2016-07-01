@@ -87,4 +87,5 @@ div#middle {margin-top: 70px;}
   .resetMap, .clear, .filterText, .footer {display: none;}
   #wrapper {max-width: 460px; padding-top: 20px;}
   #hackSpotsTable, #hackSpotsTable2, #map {min-width: 50%;}
+  .embed.basic-embed {background: #EAE4CF;}
 }
