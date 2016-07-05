@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Designist/Parks.png?label=ready&title=Ready)](https://waffle.io/Designist/Parks)
 # Hi!
 
 ![screenshot](https://raw.github.com/jlord/hack-spots/gh-pages/img/hackspotsss.png)
